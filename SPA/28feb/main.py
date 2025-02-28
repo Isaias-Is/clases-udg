@@ -1,6 +1,6 @@
 import csv
-from nicegui import ui
 from typing import List
+from nicegui import ui, events
 from computadora import *
 
 c0 = Computadora("Asus", 16, "AMD", 1000)
@@ -44,6 +44,18 @@ def generar_ui():
     c = generar_computadora()
     computadoras.append(c)
     tabla.add_rows([])
+    actualizar_tabla()
+
+def cargar_csv(archivo: events.UploadEventArguments):
+    global computadoras
+    computadoras = []
+    contenido = archivo.content.read().decode('utf-8').splitlines()
+    lector = csv.DictReader(contenido)
+    for fila in lector:
+        c = Computadora(marca=fila['marca'], memoria=fila['memoria'], procesador=fila['procesador'], disco=fila['disco'])
+        c.id = int(fila['id'])
+        computadoras.append(c)
+    tabla.rows = []
     actualizar_tabla()
 
 def menu():
@@ -91,7 +103,7 @@ with ui.tab_panels(tabs).classes("w-full h-full"):
         with ui.card():
             ui.button("Guardar", on_click=guardar_csv)
             ui.button("Descargar", on_click= lambda: ui.download("computadoras.csv"))
-            ui.download("computadoras.csv")
+            ui.upload(on_upload=cargar_csv)
 
 tabs.set_value('Tabla')
 
