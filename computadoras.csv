@@ -1,0 +1,12 @@
+id,marca,memoria,procesador,disco
+1,Asus,16,AMD,1000
+2,Lenovo,32,Intel I7,1000
+3,Lenovo,128,Intel i7,1024
+4,Dell,8,Intel i3,1024
+5,Gigabyte,8,Intel i3,1024
+6,Gigabyte,16,Intel i5,2028
+7,Gigabyte,16,Snapdragon X,1024
+8,Acer,32,Intel i3,2028
+9,Apple,16,AMD Ryzen 3,256
+10,Asus,4,Intel i5,256
+11,Gigabyte,4,Intel i7,512
