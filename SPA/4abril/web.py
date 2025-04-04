@@ -25,5 +25,4 @@ with ui.row().classes('w-full h-full gap-0 border-2 border-gray-300'):
             plt.title("Grafo")
             plt.gca().set_facecolor(color="#AABBCC")
 
-
 ui.run(port=8081)

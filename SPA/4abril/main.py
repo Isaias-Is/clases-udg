@@ -26,7 +26,7 @@ ax.set_ylim(0, 500)
 for punto in puntos:
     color = (punto.red/255, punto.green/255, punto.blue/255)
     ax.scatter(x=punto.x, y=punto.y, color=color, s=punto.radio, alpha=.8)
-    ax.text(punto.x, punto.y, str(punto))
+    ax.text(punto.x, punto.y, str(punto), ha="center", va='center')
 #plt.show()
 
 grafo = Grafo(puntos)
