@@ -11,7 +11,7 @@ def dibujar_punto():
     print(punto)
     with plot:
         color = [punto.red/255, punto.green/255, punto.blue/255]
-        plt.scatter(punto.x, punto.y, color=color, s=punto.radio, alpha=.6)
+        plt.scatter(punto.x, punto.y, color=color, s=punto.radio, alpha=.7)
 
 def limpiar_puntos():
     puntos.clear()
@@ -48,7 +48,7 @@ with ui.row().classes('self-center'):
         plt.ylim(0, 500)
         plt.xlabel('x')
         plt.ylabel('y')
-        plt.gca().set_facecolor('#E6E6E6')
+        plt.gca()
 
 with ui.row().classes('self-center'):
     ui.button("Dibujar", on_click=dibujar_punto)
